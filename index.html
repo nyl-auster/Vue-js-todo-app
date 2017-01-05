@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/foundation-sites/dist/css/foundation.min.css"/>
+  <link rel="stylesheet" type="text/css" href="bower_components/foundation-icon-fonts/foundation-icons.css"/>
+  <style>
+    .container {
+      max-width: 600px;
+      margin:auto;
+    }
+    table td {
+      border-collapse: collapse;
+      border:solid silver 1px;
+    }
+
+    .todo-list--item--actions {
+      float:right;
+    }
+    .todo-list--item--actions--delete {
+      color: red;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>VUE JS TODO LIST</h1>
+      <section id="todo-list-app">
+        <todo-list></todo-list>
+      </section>
+    </div>
+  </div>
+</div>
+
+</body>
+<script src="bower_components/vue/dist/vue.js"></script>
+<script src="node_modules/sortablejs/Sortable.js"></script>
+<script src="node_modules/vue-sortable/vue-sortable.js"></script>
+<script src="src/todo-list.js"></script>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "vuejs todo list",
+  "authors": [
+    "yann <yann.boisselier@gmail.com>"
+  ],
+  "description": "creation d'une todo list avec vue js",
+  "main": "index.html",
+  "keywords": [
+    "vuejs"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue-resource": "^1.0.3",
+    "vue": "^2.1.8",
+    "foundation-sites": "^6.3.0",
+    "foundation-icon-fonts": "*"
+  }
+}
