@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 /**
  * Notre composant pour afficher la todo list
  * C'est lui qui manipule les données de la todo-list
