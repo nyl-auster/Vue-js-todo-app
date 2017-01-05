@@ -1,2 +1,8 @@
+import Vue from "vue";
+import todoList from "./todoList.vue";
 
-require("./todo-list.js");
+new Vue({
+  el: '#todo-list-app',
+  render:h => h(todoList)
+});
+
