@@ -1,5 +1,4 @@
 <template>
-
   <table class="hover stack-for-small unstriped">
     <tbody>
     <tr v-for="(item, itemIndex) in todos">
@@ -10,8 +9,14 @@
     </tr>
     </tbody>
   </table>
-
 </template>
+
+<style>
+      table td {
+      border-collapse: collapse;
+      border:solid silver 1px;
+    }
+</style>
 
 <script>
    import todoListItemActions from "./todoListItemActions.vue";

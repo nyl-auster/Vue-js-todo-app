@@ -12,12 +12,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
-<style>
-
-</style>
 
 <script>
     import todoListAddForm from "./todoListAddForm.vue";

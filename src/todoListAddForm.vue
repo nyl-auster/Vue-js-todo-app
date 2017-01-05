@@ -1,5 +1,4 @@
 <template>
-
   <form>
     <div class="row">
       <div class="small-12 medium-10 columns">
@@ -12,7 +11,6 @@
       </div>
     </div>
   </form>
-
 </template>
 
 <script>

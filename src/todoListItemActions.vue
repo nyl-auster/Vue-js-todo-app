@@ -9,7 +9,12 @@
 </template>
 
 <style>
-
+    .todo-list--item--actions {
+      float:right;
+    }
+    .todo-list--item--actions--delete {
+      color: red;
+    }
 </style>
 
 <script>
