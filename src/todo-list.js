@@ -17,27 +17,24 @@ Vue.component('todo-list', {
     addItem:function(item) {
       this.todos.push(item)
     },
-    removeItem:function(itemIndex) {
+    deleteItem:function(itemIndex) {
       this.todos.splice(itemIndex, 1);
     },
   },
   template:`
-  <div id="todo-list">
+  <div class="todo-list">
     <div class="row">
       <div class="col-sm-12">
         <todo-list-add-form @addItem="addItem"></todo-list-add-form>
       </div>
     </div>
 
-    <br/>
-
     <div class="row todo-list">
       <div class="col-sm-12">
-        <todo-list-items :todos="todos" @removeItem="removeItem"></todo-list-items>
+        <todo-list-items :todos="todos" @deleteItem="deleteItem"></todo-list-items>
       </div>
     </div>
-  </div>
-  `
+  </div>`
 });
 
 /**
@@ -68,49 +65,26 @@ Vue.component('todo-list-add-form', {
         </button>
       </div>
     </div>
-  </form>
-  `
+  </form>`
 });
-
 
 /**
  * Liste des tâches
  */
 Vue.component('todo-list-items', {
   props: ['todos'],
-  methods: {
-    removeItem:function(itemIndex) {
-      this.$emit('removeItem', itemIndex);
-    }
-  },
   // le template de notre composant
   template: `
   <table class="hover stack-for-small unstriped">
     <tbody>
-      <todo-list-item v-for="(item, index) in todos" :itemIndex="index" :todos="todos" @removeItem="removeItem"></todo-list-item>
+     <tr v-for="(item, itemIndex) in todos">
+       <td> 
+         {{item.text}} 
+         <todo-list-item-actions @deleteItem="$emit('deleteItem', itemIndex)" :todos="todos" :itemIndex="itemIndex"></todo-list-item-actions>
+       </td>
+     </tr>
     </tbody>
-  </table>
-  `
-});
-
-/**
- * Une tâche
- */
-Vue.component('todo-list-item', {
-  props: ['todos', 'itemIndex'],
-  methods: {
-    removeItem:function(itemIndex) {
-      this.$emit('removeItem', itemIndex);
-    }
-  },
-  template: `
-  <tr>
-  <td>
-  {{todos[itemIndex].text}}
-  <todo-list-item-actions :todos="todos" :itemIndex="itemIndex" @removeItem="removeItem"></todo-list-item-actions>
-  </td>
-  </tr>
-  `
+  </table>`
 });
 
 /**
@@ -119,13 +93,13 @@ Vue.component('todo-list-item', {
 Vue.component('todo-list-item-actions', {
   props: ['todos', 'itemIndex'],
   methods:{
-    removeItem:function() {
-      this.$emit('removeItem', this.itemIndex);
+    deleteItem:function() {
+      this.$emit('deleteItem', this.itemIndex);
     }
   },
   template:`
   <div class="todo-list--item--actions">
-    <a @click.prevent="removeItem" class="todo-list--item--actions--delete">
+    <a @click.prevent="deleteItem" class="todo-list--item--actions--delete">
       <i class="fi-x medium"></i>
     </a>
   </div>
