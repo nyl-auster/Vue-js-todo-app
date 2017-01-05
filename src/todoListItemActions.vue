@@ -8,7 +8,7 @@
 
 </template>
 
-<style>
+<style scoped>
     .todo-list--item--actions {
       float:right;
     }

@@ -11,7 +11,7 @@
   </table>
 </template>
 
-<style>
+<style scoped>
       table td {
       border-collapse: collapse;
       border:solid silver 1px;
