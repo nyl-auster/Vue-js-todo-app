@@ -24,7 +24,6 @@
           },
           changeItemPriority:function(itemIndex, priority) {
             this.todos[itemIndex].priority = priority;
-            console.log(this.todos);
           }
         },
         components: {
@@ -57,3 +56,45 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+
+  ul {
+    list-style-type:none;
+    margin-left:0;
+  }
+
+  li {
+     padding:0.5rem
+  }
+
+  li:nth-child(even) {
+    /*background: #EEE;*/
+  }
+
+  .item:hover{
+    background-color: #EEE;
+    transition:background-color 0.2s linear;
+  }
+
+  .item {
+    background-color:inherit;
+  }
+
+  .high, .high:hover {
+    background-color: gold;
+    transition:background-color 0.4s linear;
+  }
+
+  .normal,.normal:hover {
+    font-weight:normal;
+    background-color:inherit;
+    transition:background-color 0.4s linear;
+  }
+
+  .low, .low:hover{
+    background-color:lightseagreen;
+    transition:background-color 0.4s linear;
+  }
+
+</style>

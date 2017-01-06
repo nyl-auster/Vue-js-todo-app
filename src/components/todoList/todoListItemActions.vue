@@ -30,6 +30,7 @@
     <div class="todo-list--item--actions--action">
       <a :class="{active: item.priority == 'high'}" class="priority" id="high" @click.prevent="changeItemPriority('high')"></a>
       <a :class="{active: item.priority == 'normal'}"  class="priority" id="normal" @click.prevent="changeItemPriority('normal')"></a>
+      <a :class="{active: item.priority == 'low'}"  class="priority" id="low" @click.prevent="changeItemPriority('low')"></a>
     </div>
 
   </div>
@@ -38,6 +39,7 @@
 <style scoped>
 
     .todo-list--item--actions {
+      position:relative;
       float:right;
     }
 
@@ -49,27 +51,32 @@
       border:solid white 1px;
       float: right;
       margin-right: 1rem;
+      right:0;
+
     }
 
     .priority.active {
-      border: solid black 1px;
+      border:solid black 1px;
+      right:-50px;
+      transition:all 0.4s ease-in-out;
     }
 
     .todo-list--item--actions--action {
       float:right;
     }
 
-    #high {
+    .priority#high {
       background:orange;
       color:orange;
     }
 
-    #normal {
+    .priority#normal {
       background: white;
     }
 
-    #low {
+    .priority#low {
       opacity:0.7;
+      background:lightseagreen;
     }
 
     .todo-list--item--actions--action--delete {

@@ -14,20 +14,27 @@
           todoListItemActions
         }
     }
+
 </script>
 
 <template>
-  <ul class="todo-list--items">
-    <li v-for="(item, itemIndex) in todos" class="item" :class="item.priority">
-      {{item.text}}
-      <todo-list-item-actions
-              @deleteItem="deleteItem"
-              @changeItemPriority="changeItemPriority"
-              :item="item"
-              :itemIndex="itemIndex">
-      </todo-list-item-actions>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="small-10 columns">
+      <ul class="todo-list--items">
+        <li v-for="(item, itemIndex) in todos" class="item" :class="item.priority">
+          {{item.text}}
+          <todo-list-item-actions
+                  @deleteItem="deleteItem"
+                  @changeItemPriority="changeItemPriority"
+                  :item="item"
+                  :itemIndex="itemIndex">
+          </todo-list-item-actions>
+        </li>
+      </ul>
+    </div>
+    <div class="small-2 columns">
+    </div>
+  </div>
 </template>
 
 
@@ -57,13 +64,20 @@
 
   .high, .high:hover {
     background-color: gold;
-    transition:background-color 0.5s linear;
+    transition:background-color 0.4s linear;
   }
 
-  .normal {
+  .normal, .normal:hover {
     font-weight:normal;
     background-color:inherit;
-    transition:background-color 0.5s linear;
+    transition:background-color 0.4s linear;
   }
+
+  .low, .low:hover{
+    transition:all 0.4s linear;
+    background-color:lightseagreen;
+    color:white;
+  }
+
 
 </style>
