@@ -38,20 +38,45 @@
   <div class="todo-list">
     <div class="row">
       <div class="col-sm-12">
-        <!-- formulaire d'ajout d'une tâche -->
-        <todo-list-add-form @addItem="addItem"></todo-list-add-form>
+
+        <form>
+          <div class="row">
+            <div class="small-12 medium-10 columns">
+              <input type="text" v-model="newTodo"/>
+            </div>
+            <div class="small-12 medium-2 columns">
+              <button :disabled="!this.newTodo" type="submit" class="button primary" @click.prevent="addItem">
+                Ajouter
+              </button>
+            </div>
+          </div>
+        </form>
+
       </div>
     </div>
 
     <div class="row todo-list">
       <div class="col-sm-12">
-        <!-- list des tâches -->
-        <todo-list-items
-                :todos="todos"
-                @changeItemPriority="changeItemPriority"
-                @deleteItem="deleteItem">
 
-        </todo-list-items>
+        <div class="row">
+          <div class="small-10 columns">
+            <ul class="todo-list--items">
+              <li v-for="(item, itemIndex) in todos" class="item" :class="item.priority">
+                {{item.text}}
+                <todo-list-item-actions
+                        @deleteItem="deleteItem"
+                        @changeItemPriority="changeItemPriority"
+                        :item="item"
+                        :itemIndex="itemIndex">
+                </todo-list-item-actions>
+              </li>
+            </ul>
+          </div>
+          <div class="small-2 columns">
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
