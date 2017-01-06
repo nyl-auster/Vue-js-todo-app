@@ -1,13 +1,16 @@
+<!-- composant root de la todolist -->
 <template>
   <div class="todo-list">
     <div class="row">
       <div class="col-sm-12">
+        <!-- formulaire d'ajout d'une tâche -->
         <todo-list-add-form @addItem="addItem"></todo-list-add-form>
       </div>
     </div>
 
     <div class="row todo-list">
       <div class="col-sm-12">
+        <!-- list des tâches -->
         <todo-list-items :todos="todos" @deleteItem="deleteItem"></todo-list-items>
       </div>
     </div>
@@ -17,8 +20,8 @@
 <script>
     import todoListAddForm from "./todoListAddForm.vue";
     import todoListItems from "./todoListItems.vue";
-    export default{
-        data:function(){
+    export default {
+        data:function() {
           return {
             todos:[
               {
@@ -28,7 +31,7 @@
             ]
           }
         },
-        methods:{
+        methods: {
           addItem:function(item) {
             this.todos.push(item)
           },

@@ -1,4 +1,6 @@
-import Vue from "vue";
+/**
+ * Exemple de la liste avec du javascript natif
+ */
 
 /**
  * Notre composant pour afficher la todo list
